@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="icon" href="https://i.ibb.co/rKQmh77g/387a62462a9229a897db36604254f8a7.jpg" type="image/jpeg" id="favicon">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://i.ibb.co/kgQkQRrk/grunge-black-concrete-textured-background.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            position: relative;
+            backdrop-filter: blur(8px);
+            flex-direction: column;
+        }
+        .topbar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        .back-button, .social-button {
+            background-color: #363434;
+            border: 2px solid #A9A9A9;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .back-button:hover, .social-button:hover {
+            background-color: #4a4a4a;
+        }
+        .profile-container {
+            position: relative;
+            width: 350px;
+            height: 450px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            
+        }
+        .profile-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co/5Xf4Fc69/1373963.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        .profile-content {
+            position: relative;
+            text-align: center;
+            color: #ffffff;
+            padding: 20px;
+        }
+        .logo-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px auto;
+            object-fit: cover;
+            border: 3px solid #;
+            animation: wave 2s infinite alternate;
+        }
+
+        @keyframes wave {
+            0% { 
+                transform: scale(1); 
+                box-shadow: 0 0 15px rgba(255, 0, 0); 
+            }
+            100% { 
+                transform: scale(1.1); 
+                box-shadow: 0 0 25px rgba(255, 0, 0); 
+            }
+        }
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        #music-panel {
+            background-color: rgba(20, 19, 19);
+            border: 2px solid #373636;
+            border-radius: 8px;
+            padding: 5px;
+            color: #fff;
+            width: 320px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            left: -750px;
+            box-shadow: 0 0 15px #afafaf;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -2;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        window.onload = function() {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": { "value": "#666666" },
+                    "opacity": { "value": 0.5 },
+                    "size": { "value": 3 },
+                    "move": {
+                        "enable": true,
+                        "speed": 2
+                    }
+                }
+            });
+
+            const playlist = [
+                "https://open.spotify.com/embed/track/2lTm559tuIvatlT1u0JYG2",
+                "https://open.spotify.com/embed/track/1iEwyiSLAunPR6uouANE0O",
+                "https://open.spotify.com/embed/track/44BZWegR2TBYtgZdAHwaGH",
+                "https://open.spotify.com/embed/track/2cPSKVsKHsjCkztKkaekfS"
+            ];
+
+            let currentIndex = 0;
+            const musicFrame = document.getElementById('music-frame');
+
+            function playNextSong() {
+                musicFrame.src = playlist[currentIndex];
+                currentIndex = (currentIndex + 1) % playlist.length;
+            }
+
+            playNextSong();
+        };
+    </script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="topbar">
+        <button class="back-button" onclick="history.back()">
+            <i class="mdi mdi-arrow-left"></i> Back
+        </button>
+    </div>
+  <div class="profile-container">
+      <div class="profile-background"></div>
+      <div class="profile-content">
+          <h2>UK Sh3cke</h2>
+          <h3>@Sh3cke</h3>
+          <img src="https://i.ibb.co/rKQmh77g/387a62462a9229a897db36604254f8a7.jpg" alt="Logo" class="logo-image" id="logo-image">
+          <p id="description"><img src="https://flagcdn.com/w40/ve.png" alt="Venezuela Flag" style="height: 16px; vertical-align: middle;"> | Año 16 | The goat 💦<br><br>
+            Klk, diamantes en brutos<br>
+            Me gusta el Fútbol, Volleyball, Basketball<br>
+            Configurador de plugins externos</p>
+          <div class="social-buttons">
+              <a href="https://discord.gg/HTyTPN2tU4" class="social-button">
+                  <i class="mdi mdi-discord"></i> Discord server
+              </a>
+              <a href="https://www.roblox.com/es/users/7938148902/profile" class="social-button">
+                  <i class="mdi mdi-roblox"></i> Roblox Perfil
+              </a>
+          </div>
+      </div>
+  </div>
+    <div id="music-panel">
+        <iframe id="music-frame" width="100%" height="380" frameBorder="0" allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
+</body>
+</html>
